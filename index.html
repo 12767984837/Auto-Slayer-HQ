@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AUTO SLAYERS COMMAND HUB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- Landing / Lock Screen -->
+    <section id="landing" class="screen center">
+      <img id="logo" src="updated logo.png" alt="Auto Slayers Logo">
+      <h1>AUTO SLAYERS</h1>
+      <p class="muted">Long-press the logo to unlock the Team Space</p>
+    </section>
+
+    <!-- Master Password Box -->
+    <section id="masterBox" class="screen center hidden">
+      <div class="card">
+        <h2>Team Access</h2>
+        <input id="masterInput" type="password" placeholder="Enter team master key">
+        <div class="row">
+          <button id="masterSubmit">Submit</button>
+          <button id="masterCancel">Cancel</button>
+        </div>
+        <p class="note">(Master password currently blank in code — edit script.js to set it.)</p>
+      </div>
+    </section>
+
+    <!-- Welcome Splash -->
+    <section id="splash" class="screen center hidden">
+      <div class="card">
+        <h2>Welcome, Slayer</h2>
+        <p id="splashName"></p>
+      </div>
+    </section>
+
+    <!-- Personal Login -->
+    <section id="loginBox" class="screen center hidden">
+      <div class="card">
+        <h2>Member Login</h2>
+        <input id="fullname" placeholder="Full name (e.g. Jyanshu)">
+        <input id="codename" placeholder="Code name (e.g. Falcon-X)">
+        <input id="role" placeholder="Role (e.g. Electronics)">
+        <input id="userPwd" type="password" placeholder="Password">
+        <div class="row">
+          <button id="loginSubmit">Login</button>
+          <button id="loginBack">Back</button>
+        </div>
+        <p class="note">(Passwords for users are blank by default — fill them in script.js users array.)</p>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="hidden">
+      <header class="topbar">
+        <div class="left">
+          <img src="updated logo.png" alt="logo" class="logoSmall">
+          <div>
+            <div class="title">AUTO SLAYERS COMMAND HUB</div>
+            <div class="subtitle" id="userGreeting">Welcome</div>
+          </div>
+        </div>
+        <div class="right">
+          <div id="overrideHolder" class="hidden">
+            <button id="manualOverride" class="danger">Manual Override (Admin: Jyanshu)</button>
+          </div>
+          <button id="logout">Logout</button>
+        </div>
+      </header>
+
+      <main class="mainGrid">
+        <aside class="sidebar">
+          <nav>
+            <button class="navBtn active" data-tab="pit">Pit Display</button>
+            <button class="navBtn" data-tab="boards">Bulletin Boards</button>
+            <button class="navBtn" data-tab="notes">Notes</button>
+            <button class="navBtn" data-tab="chat">Chat</button>
+            <button class="navBtn" data-tab="settings">Settings</button>
+          </nav>
+        </aside>
+
+        <section class="content">
+
+          <!-- PIT DISPLAY -->
+          <div id="pit" class="tab active">
+            <h2>Pit Display</h2>
+            <div class="card">
+              <p><strong>Car Status:</strong> <span id="carStatus">Idle</span></p>
+              <p><strong>Wheel RPM (sample):</strong> <span id="rpmDisplay">0</span></p>
+              <p><strong>Wi-Fi Link:</strong> <span id="wifiStatus">Connected</span></p>
+              <div class="row" style="margin-top:10px">
+                <button id="simRPM">Simulate RPM</button>
+                <button id="simStop">Simulate Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BULLETIN BOARDS -->
+          <div id="boards" class="tab hidden">
+            <h2>Bulletin Boards</h2>
+            <div id="boardsContainer" class="boardsGrid"></div>
+          </div>
+
+          <!-- NOTES -->
+          <div id="notes" class="tab hidden">
+            <h2>Your Notes</h2>
+            <div class="card">
+              <textarea id="personalNotes" placeholder="Personal notes for your tasks..."></textarea>
+              <div class="row" style="margin-top:8px">
+                <button id="saveNotes">Save Notes</button>
+                <button id="clearNotes">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHAT -->
+          <div id="chat" class="tab hidden">
+            <h2>Team Chat</h2>
+            <div class="chatWrap">
+              <div class="chatLeft">
+                <h4>Conversations</h4>
+                <button class="convBtn active" data-conv="group">Group Chat</button>
+                <div id="userList"></div>
+              </div>
+              <div class="chatRight">
+                <div class="chatHeader"><span id="convTitle">Group Chat</span></div>
+                <div id="messages" class="messages"></div>
+                <div class="chatInput">
+                  <input id="messageInput" placeholder="Type a message...">
+                  <button id="sendMsg">Send</button>
+                </div>
+                <div class="chatActions">
+                  <button id="clearChatLocal">Clear Local Chat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SETTINGS -->
+          <div id="settings" class="tab hidden">
+            <h2>Settings & Admin</h2>
+            <div class="card">
+              <h3>Team Members</h3>
+              <div id="membersList"></div>
+              <hr>
+              <h3>Admin Actions</h3>
+              <p>Only visible to admin (Jyanshu).</p>
+              <div id="adminPanel" class="hidden">
+                <button id="wipeAll" class="danger">DELETE ALL TEAM DATA (full wipe)</button>
+                <button id="clearGroupChats" class="danger">Clear Group Chat</button>
+                <p style="margin-top:8px">Ban or unban users below:</p>
+                <div id="banList"></div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

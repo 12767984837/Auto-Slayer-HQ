@@ -1,0 +1,57 @@
+:root{
+  --bg:#0b0b0b;
+  --card:#111;
+  --muted:#bdbdbd;
+  --accent:#fff;
+  --danger:#ff4d4d;
+  --glass: rgba(255,255,255,0.03);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;background:var(--bg);color:var(--accent)}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.screen{padding:24px}
+.hidden{display:none}
+#logo{width:360px;max-width:70%;filter:drop-shadow(0 6px 12px rgba(0,0,0,0.6))}
+h1{margin:12px 0 6px;font-size:28px;letter-spacing:2px}
+.muted{color:var(--muted)}
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:8px;padding:18px;min-width:320px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+input,textarea,button{border-radius:6px;border:0;padding:10px;background:transparent;color:var(--accent);outline:none}
+input{background:rgba(255,255,255,0.02);width:100%;margin-bottom:8px}
+textarea{min-height:120px;background:rgba(255,255,255,0.02);resize:vertical;width:100%;color:var(--accent)}
+
+.row{display:flex;gap:8px;justify-content:flex-end}
+button{cursor:pointer;padding:8px 12px;background:var(--glass);color:var(--accent);border:1px solid rgba(255,255,255,0.02)}
+button:hover{background:rgba(255,255,255,0.03)}
+.danger{background:linear-gradient(180deg, rgba(255,0,0,0.12), rgba(255,0,0,0.06));border:1px solid rgba(255,0,0,0.12)}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.02)}
+.logoSmall{height:40px;margin-right:12px}
+.title{font-weight:700}
+.subtitle{font-size:12px;color:var(--muted)}
+
+.mainGrid{display:flex;min-height:calc(100vh - 74px)}
+.sidebar{width:180px;padding:18px;border-right:1px solid rgba(255,255,255,0.02)}
+.navBtn{display:block;width:100%;margin-bottom:8px;text-align:left;padding:10px;background:transparent}
+.navBtn.active{background:rgba(255,255,255,0.02);border-left:4px solid #fff}
+.content{flex:1;padding:20px}
+.tab{min-height:60vh}
+.boardsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.boardCard{background:var(--card);padding:12px;border-radius:8px;min-height:160px}
+
+.chatWrap{display:flex;gap:12px}
+.chatLeft{width:180px;border-right:1px solid rgba(255,255,255,0.02);padding-right:8px}
+.chatRight{flex:1;display:flex;flex-direction:column}
+.convBtn{display:block;width:100%;margin:6px 0;text-align:left;padding:8px;background:transparent}
+.convBtn.active{background:rgba(255,255,255,0.02)}
+.messages{flex:1;overflow:auto;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:6px;border:1px solid rgba(255,255,255,0.02);min-height:220px}
+.msg{margin:8px 0;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02)}
+.msg.you{background:linear-gradient(90deg, rgba(0,120,255,0.12), rgba(0,120,255,0.06));text-align:right}
+.chatHeader{padding:8px 0;font-weight:700}
+.chatInput{display:flex;gap:8px;margin-top:8px}
+#userList{margin-top:12px}
+
+.note{color:var(--muted);font-size:12px;margin-top:8px}
+.membersItem{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
